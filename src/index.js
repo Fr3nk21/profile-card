@@ -85,28 +85,6 @@ function Skill({ skill, color, level }) {
     </div>
   );
 }
-// const skills = skillsData;
-// const numSkills = skills.length;
-
-// return (
-//   {numSkills > 0 ? (
-//     <>
-//     <ul>
-//     {skills.map((skill) => (
-//       <Skill skillObj={skill} key={skill.skill} />
-//     ))}
-//     </ul>
-//     </>
-//   ) : (<p>I don't have any skills</p>)}
-// )}
-
-// function Skill() {
-//   return (
-//     <li>
-//       <p>{skillObj.skill}</p>
-//     </li>
-//   );
-// }
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
