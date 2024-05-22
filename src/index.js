@@ -2,6 +2,39 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const skillsData = [
+  {
+    skill: "HTML + CSS",
+    level: "advanced",
+    color: "#2662EA",
+  },
+  {
+    skill: "JavaScript",
+    level: "advanced",
+    color: "#EFD81D",
+  },
+  {
+    skill: "Web Design",
+    level: "advanced",
+    color: "#C3DCAF",
+  },
+  {
+    skill: "Git and GitHub",
+    level: "intermidiate",
+    color: "#E84F33",
+  },
+  {
+    skill: "React",
+    level: "advanced",
+    color: "#60DAFB",
+  },
+  {
+    skill: "NextJs",
+    level: "beginner",
+    color: "#553B00",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -15,16 +48,16 @@ function App() {
 }
 
 function Avatar() {
-  return <img className="avatar" src="/pic1.webp" alt="Photo profile" />;
+  return <img className="avatar" src="/pic1.jpg" alt="Photo profile" />;
 }
 
 function Intro() {
   return (
     <div>
-      <h1>Name Person</h1>
+      <h1>Francesco Bugugnoli</h1>
       <p>
-        In ut quam vitae odio lacinia tincidunt. Quisque id odio. Vivamus
-        laoreet. Proin magna.
+        I help businesses to create brand identity by combining websites and
+        videos to convert viewers into buyers.
       </p>
     </div>
   );
@@ -33,21 +66,47 @@ function Intro() {
 function SkillList() {
   return (
     <div className="skill-list">
-      <Skill skill="React" emoji="#" color="yellow" />
-      <Skill skill="JavaScript" emoji="#" color="blue" />
-      <Skill skill="After Effect" emoji="#" color="orange" />
+      {skillsData.map((skill) => (
+        <Skill skill={skill.skill} color={skill.color} level={skill.level} />
+      ))}
     </div>
   );
 }
 
-function Skill(props) {
+function Skill({ skill, color, level }) {
   return (
-    <div className="skill" style={{ backgroundColor: props.color }}>
-      <span>{props.skill}</span>
-      <span>{props.emoji}</span>
+    <div className="skill" style={{ backgroundColor: color }}>
+      <span>{skill}</span>
+      <span>
+        {level === "beginner" && "👶"}
+        {level === "intermidiate" && "👍"}
+        {level === "advanced" && "💪"}
+      </span>
     </div>
   );
 }
+// const skills = skillsData;
+// const numSkills = skills.length;
+
+// return (
+//   {numSkills > 0 ? (
+//     <>
+//     <ul>
+//     {skills.map((skill) => (
+//       <Skill skillObj={skill} key={skill.skill} />
+//     ))}
+//     </ul>
+//     </>
+//   ) : (<p>I don't have any skills</p>)}
+// )}
+
+// function Skill() {
+//   return (
+//     <li>
+//       <p>{skillObj.skill}</p>
+//     </li>
+//   );
+// }
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
